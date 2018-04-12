@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WebBetHome.Server.Service1" CodeBehind="UserService.svc.cs" %>

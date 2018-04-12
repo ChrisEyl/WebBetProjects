@@ -1,0 +1,77 @@
+﻿
+@{
+    Layout = null;
+    var display = WebBet.Controllers.BaseController.MessageToDisplay.Deserialize(TempData["Display"]?.ToString());
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*action classique*@
+                @*<a class="navbar-brand" href="~/">WebBet</a>*@
+                @*Version HtmlHelper MVC 5*@
+                @*@Html.ActionLink("WebNet", "Index", "Home", null, new { @class = "navbar-brand" })*@
+                @*Version TagHelper MVC 6*@
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">WebBet</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a asp-controller="Bets" asp-action="Index">Mes paris <span class="sr-only">(current)</span></a></li>
+                    <li><a asp-route="sinscrire">S'inscrire</a></li>
+                    <environment names="Development">
+                        <li><a asp-area="BackOffice" asp-controller="Dashboard" asp-action="Index">Administration</a></li>
+                    </environment>
+                    @*<li><a asp-controller="Home" asp-action="About">A propos de...</a></li>*@
+                    <li><a asp-route="apropos">A propos de...</a></li>
+                    <li><a asp-controller="Authentication" asp-action="LogOut"><i class="glyphicon glyphicon-edit"></i></a></li>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+
+        @if (display != null)
+        {
+            <div class="alert-@(display.MessageType == WebBet.Controllers.BaseController.MessageType.OK?"success":"danger")">
+                @(display.Message)
+            </div>
+        }
+
+        @RenderBody()
+    </div>
+    <footer class="panel-footer">
+        <hr />
+        &copy; WebBet
+        @await Component.InvokeAsync("TopMatches")
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+    <script src="~/bootstrap/js/bootstrap.js"></script>
+
+    @*Chargement des scripts js au besoin (evite de les charger sur chaque page)*@
+    @RenderSection("SectionScripts", false)
+
+</body>
+</html>

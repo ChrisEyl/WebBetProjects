@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+    var display = WebBet.Controllers.BaseController.MessageToDisplay.Deserialize(TempData["Display"]?.ToString());
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BackOffice</title>
+    <link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand"  asp-area="" asp-controller="Home" asp-action="Index">WebBet</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="BackOffice" asp-controller="Matches" asp-action="Index">Matchs</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+
+        @if (display != null)
+        {
+            <div class="alert-@(display.MessageType == WebBet.Controllers.BaseController.MessageType.OK?"success":"danger")">
+                @(display.Message)
+            </div>
+        }
+
+        @RenderBody()
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+    <script src="~/bootstrap/js/bootstrap.js"></script>
+
+    @*Chargement des scripts js au besoin (evite de les charger sur chaque page)*@
+    @RenderSection("SectionScripts", false)
+
+</body>
+</html>

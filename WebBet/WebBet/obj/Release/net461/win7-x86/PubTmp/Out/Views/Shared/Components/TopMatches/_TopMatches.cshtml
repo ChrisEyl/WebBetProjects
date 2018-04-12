@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Match>
+
+<h2> Top 5 des matchs </h2>
+    <table class="table table-condensed">
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Team1) - @Html.DisplayFor(modelItem => item.Team2)
+                    </td>
+                    <td>
+                        <a asp-action="Parier" asp-route-id="@item.Id"><i class="glyphicon glyphicon-euro"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

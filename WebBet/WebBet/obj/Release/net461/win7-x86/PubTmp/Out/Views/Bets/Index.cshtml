@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebBet.Models.Bet>
+
+@{
+    ViewData["Title"] = "Mes paris";
+}
+
+<h2>Mes paris</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Result)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Match.Team1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Match.Team2)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Match.Team1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Match.Team2)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

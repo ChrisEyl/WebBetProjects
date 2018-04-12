@@ -1,0 +1,11 @@
+C:\Users\inow-formation04\source\repos\WebBet\Languages\bin\Release\Languages.dll
+C:\Users\inow-formation04\source\repos\WebBet\Languages\bin\Release\Languages.pdb
+C:\Users\inow-formation04\source\repos\WebBet\Languages\bin\Release\en\Languages.resources.dll
+C:\Users\inow-formation04\source\repos\WebBet\Languages\obj\Release\Languages.csprojResolveAssemblyReference.cache
+C:\Users\inow-formation04\source\repos\WebBet\Languages\obj\Release\Languages.Resources.Resource.resources
+C:\Users\inow-formation04\source\repos\WebBet\Languages\obj\Release\Languages.Resources.Resource.en.resources
+C:\Users\inow-formation04\source\repos\WebBet\Languages\obj\Release\Languages.csproj.GenerateResource.cache
+C:\Users\inow-formation04\source\repos\WebBet\Languages\obj\Release\Languages.csproj.CoreCompileInputs.cache
+C:\Users\inow-formation04\source\repos\WebBet\Languages\obj\Release\en\Languages.resources.dll
+C:\Users\inow-formation04\source\repos\WebBet\Languages\obj\Release\Languages.dll
+C:\Users\inow-formation04\source\repos\WebBet\Languages\obj\Release\Languages.pdb
